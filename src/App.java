@@ -3,47 +3,58 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Ingrese su nombre: ");
-        String nombre = scanner.nextLine();
+        double temperaturas[] = new double[7];
 
-        System.out.print("Ingrese su codigo: ");
-        int codigo = scanner.nextInt();
+        double suma = 0;
+        double mayor;
+        double menor;
+        int mayores30 = 0;
+        int menores20 = 0;
 
-        System.out.print("Ingrese su nota definitiva (0.0 - 5.0): ");
-        double nota = scanner.nextDouble();
+        for (int i = 0; i < 7; i++) {
+            System.out.print("Ingrese la temperatura del dia " + (i + 1) + ": ");
+            temperaturas[i] = sc.nextDouble();
+        }
 
-        if (nota < 0.0 || nota > 5.0) {
-            System.out.println("Nota inválida.");
-        } else {
+        mayor = temperaturas[0];
+        menor = temperaturas[0];
 
-            if (nota >= 0.0 && nota <= 2.9) {
-                System.out.println("El estudiante " + nombre + 
-                " con código " + codigo + 
-                " obtuvo " + nota + 
-                " → REPRUEBA");
+        for (int i = 0; i < 7; i++) {
 
-            } else if (nota >= 3.0 && nota <= 3.9) {
-                System.out.println("El estudiante " + nombre + 
-                " con código " + codigo + 
-                " obtuvo " + nota + 
-                " → APRUEBA (Nivel básico)");
+            suma = suma + temperaturas[i];
 
-            } else if (nota >= 4.0 && nota <= 4.5) {
-                System.out.println("El estudiante " + nombre + 
-                " con código " + codigo + 
-                " obtuvo " + nota + 
-                " → BUEN desempeño");
+            if (temperaturas[i] > mayor) {
+                mayor = temperaturas[i];
+            }
 
-            } else {
-                System.out.println("El estudiante " + nombre + 
-                " con código " + codigo + 
-                " obtuvo " + nota + 
-                " → EXCELENTE desempeño");
+            if (temperaturas[i] < menor) {
+                menor = temperaturas[i];
+            }
+
+            if (temperaturas[i] >= 30) {
+                mayores30++;
+            }
+
+            if (temperaturas[i] < 20) {
+                menores20++;
             }
         }
 
-        scanner.close();
+        double promedio = suma / 7;
+
+        System.out.println("\nTemperaturas ingresadas:");
+        for (int i = 0; i < 7; i++) {
+            System.out.println("Dia " + (i + 1) + ": " + temperaturas[i]);
+        }
+
+        System.out.println("Temperatura mayor: " + mayor);
+        System.out.println("Temperatura menor: " + menor);
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Temperaturas Mayor e igual a 30: " + mayores30);
+        System.out.println("Temperaturas Menores a 20: " + menores20);
+
+        sc.close();
     }
 }
