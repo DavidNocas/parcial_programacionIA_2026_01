@@ -6,7 +6,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         // var nombre = "";
-         // int codigo = 0;
+        // int codigo = 0;
         // double nota = 0;
 
         System.out.println("Ingrese su nombre: ");
@@ -20,11 +20,11 @@ public class App {
 
         if (nota > 0.0 && nota < 5.0) {
 
-            if (nota == 0.0 && nota == 2.9) {
+            if (nota >= 0.0 && nota <= 2.9) {
                 System.out.println("El estudiante " + nombre + " con el codigo: " + codigo + " y la nota: " + nota + " reprobo");
-            } else if (nota == 3.0 && nota == 3.9) {
+            } else if (nota >= 3.0 && nota <= 3.9) {
                 System.out.println("El estudiante " + nombre + " con el codigo: " + codigo + " y la nota: " + nota + " aprueba en nivel basico");
-            } else if (nota == 4.0 && nota == 4.5) {
+            } else if (nota >= 4.0 && nota <= 4.5) {
                 System.out.println("El estudiante " + nombre + " con el codigo: " + codigo + "y la nota: " + nota + " aprueba con buen desempeño");
             } else {
                 System.out.println("El estudiante " + nombre + " con el codigo: " + codigo + " y la nota: " + nota + " aprueba con desempeño exelente");
