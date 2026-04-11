@@ -1,65 +1,38 @@
 import java.util.Scanner;
 
 public class App2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
-
-        double[] Array = new double[7];
+        int[] Array = new int[7];
         double suma = 0;
-        double mayor;
-        double menor;
-        int mayores30 = 0;
-        int menores20 = 0;
+        int cont = 0;
 
-        // Ingreso de temperaturas
-        for (int i = 0; i < 7; i++) {
-            System.out.print("Ingrese la temperatura del dia " + (i + 1) + ": ");
-            Array[i] = scanner.nextDouble();
+        for (int i = 0; i <= 7; i++) {
+
+            System.out.println("Ingrese las temperaturas: ");
+            double temp = scanner.nextDouble();
+
+            System.out.println(Array[i]); 
+
         }
 
-        // Inicializar
-        mayor = Array[0];
-        menor = Array[0];
-
-        // Procesar datos
-        for (int i = 0; i < 7; i++) {
-
-            suma = suma + Array[i];
-
-            if (Array[i] > mayor) {
-                mayor = Array[i];
-            }
-
-            if (Array[i] < menor) {
-                menor = Array[i];
-            }
-
-            if (Array[i] >= 30) {
-                mayores30++;
-            }
-
-            if (Array[i] < 20) {
-                menores20++;
-            }
-        }
-
-        double promedio = suma / 7;
-
-        // Mostrar temperaturas
-        System.out.println("\nTemperaturas ingresadas:");
-        for (int i = 0; i < 7; i++) {
-            System.out.println("Dia " + (i + 1) + ": " + Array[i]);
-        }
-
-        // Resultados
-        System.out.println("\n--- RESUMEN ---");
-        System.out.println("Temperatura mayor: " + mayor);
-        System.out.println("Temperatura menor: " + menor);
-        System.out.println("Promedio: " + promedio);
-        System.out.println("Mayores o iguales a 30: " + mayores30);
-        System.out.println("Menores a 20: " + menores20);
-
-        scanner.close();
     }
 }
+
+/*  
+
+System.err.println("La tempratura mayor es: ");
+
+Crear un arreglo lineal para almacenar **7 temperaturas**.
+Solicitar al usuario el ingreso de cada temperatura.
+Recorrer el arreglo y calcular:
+- La temperatura mayor
+- La temperatura menor
+- El promedio general
+- Cuántas temperaturas fueron mayores o iguales a 30 grados
+- Cuántas temperaturas fueron menores a 20 grados
+
+Mostrar todas las temperaturas ingresadas.
+Mostrar un resumen final del análisis.
+*/
